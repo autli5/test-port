@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 import styles from "../../styles/HomePage/HomePage.module.css";
 import house from "../../assets/house.svg";
 import about from "../../assets/about.svg";
@@ -45,8 +46,19 @@ export const HomePage = () => {
                     </p>
 
                     <div className={styles.introActions}>
-                        <button className={`${styles.btn} ${styles.btnPrimary}`}>Смотреть работы</button>
-                        <button className={`${styles.btn} ${styles.btnSecondary}`}>Связаться</button>
+                        <Link
+                            to="/projects"
+                            className={`${styles.btn} ${styles.btnPrimary}`}
+                        >
+                            Смотреть работы
+                        </Link>
+
+                        <Link
+                            to="/contact"
+                            className={`${styles.btn} ${styles.btnSecondary}`}
+                        >
+                            Связаться
+                        </Link>
                     </div>
                 </div>
 
@@ -85,8 +97,19 @@ export const HomePage = () => {
                             </div>
 
                             <div className={styles.projectButtons}>
-                                <button className={styles.viewBtn}>Смотреть</button>
-                                <button className={styles.codeBtn}>GitHub</button>
+                                <Link
+                                    to="/projects"
+                                    className={styles.viewBtn}
+                                >
+                                    Смотреть
+                                </Link>
+
+                                <Link
+                                    to="/projects"
+                                    className={styles.codeBtn}
+                                >
+                                    GitHub
+                                </Link>
                             </div>
                         </div>
 
