@@ -3,6 +3,16 @@
     padding: 0;
     box-sizing: border-box;
     box-shadow: none;
+    font-family: "Montserrat";
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../styles/fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('woff2'),
+    url('../styles/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Best practice to prevent invisible text while loading */
 }
 
 body {
@@ -21,3 +31,7 @@ body {
     /* background-color: aqua; */
 }
 
+a {
+    text-decoration: none;
+    color: #111;
+}

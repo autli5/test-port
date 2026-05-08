@@ -1,42 +1,46 @@
 .container {
     position: fixed;
-    left: 20px;
+    left: 24px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 1000;
-    
+
     & .navigation {
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(14px);
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.08);
         border-radius: 60px;
         padding: 16px 12px;
-        
+
         & ul {
             display: flex;
-            flex-direction: column; /* Вертикальное расположение */
+            flex-direction: column;
             gap: 16px;
             margin: 0;
             padding: 0;
-            
+
             & li {
                 list-style-type: none;
                 cursor: pointer;
                 transition: all 0.3s ease;
                 border-radius: 50%;
                 padding: 15px;
+
                 display: flex;
                 align-items: center;
                 justify-content: center;
+
                 background-color: #fff;
-                
+
                 &:hover {
-                    background-color: rgba(250, 235, 215, 0.461);
-                    transform: scale(1.1);
+                    background-color: rgba(255, 145, 0, 0.15);
+                    transform: scale(1.08);
                 }
-                
+
                 &.active {
                     background-color: rgb(255, 145, 0);
                 }
-                
+
                 & img {
                     width: 28px;
                     height: 28px;
@@ -46,48 +50,975 @@
             }
         }
     }
-
-    
 }
 
-.page {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    & img {
-        background-color: aquamarine;
-        float: right;
-        width: 800px;
-
-    }
-}
-
+/* =========================================
+   MAIN LAYOUT
+========================================= */
 
 .welcome {
-    margin-top: 10vh;
     margin-left: 120px;
-    background-color: aqua;
-    width: 70%;
-    min-height: 85vh;
+
+    width: calc(100% - 140px);
+
+    padding: 50px 60px;
+
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
 }
 
-/* Адаптивность для мобильных устройств */
-@media (max-width: 768px) {
-    .container .navigation {
-        left: 10px;
-        padding: 12px 8px;
-        
-        & ul {
-            gap: 12px;
-            
-            & li {
-                padding: 8px;
-                
-                & img {
-                    width: 24px;
-                    height: 24px;
+/* =========================================
+   INTRO BLOCK
+========================================= */
+
+.introBlock {
+    border: 2px solid rgba(128,128,128,0.35);
+
+    width: 100%;
+    max-width: 650px;
+
+    backdrop-filter: blur(12px);
+
+    border-radius: 28px;
+    padding: 36px;
+
+    animation: slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+
+    opacity: 0;
+    transform: translateY(30px);
+
+    z-index: 2;
+
+    background: rgba(255,255,255,0.05);
+
+    & .statusBadge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+
+        background: #00c853;
+        color: #fff;
+
+        font-size: 11px;
+        font-weight: 700;
+
+        padding: 6px 12px;
+        border-radius: 20px;
+
+        margin-bottom: 18px;
+
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+
+        &:before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #fff;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+    }
+
+    & .introTitle {
+        font-size: 52px;
+        font-weight: 800;
+        color: #111;
+
+        margin: 0 0 16px;
+        line-height: 1.05;
+    }
+
+    & .introDesc {
+        font-size: 18px;
+        color: #444;
+
+        line-height: 1.7;
+
+        margin: 0 0 28px;
+
+        max-width: 580px;
+    }
+
+    & .introActions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+
+        & .btn {
+            padding: 14px 24px;
+            border-radius: 16px;
+
+            font-size: 15px;
+            font-weight: 600;
+
+            cursor: pointer;
+            transition: all 0.25s ease;
+
+            border: none;
+
+            &.btnPrimary {
+                background: #111;
+                color: #fff;
+
+                &:hover {
+                    background: #333;
+                    transform: translateY(-3px);
+                    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+                }
+            }
+
+            &.btnSecondary {
+                background: transparent;
+                color: #111;
+
+                border: 2px solid #111;
+
+                &:hover {
+                    background: #111;
+                    color: #fff;
+                    transform: translateY(-3px);
                 }
             }
         }
+    }
+}
+
+/* =========================================
+   PROJECT
+========================================= */
+
+.project {
+    width: 100%;
+    max-width: 950px;
+
+    border: 2px solid rgba(128,128,128,0.35);
+    border-radius: 28px;
+
+    backdrop-filter: blur(14px);
+
+    padding: 30px;
+
+    animation: slideUpFade 1s ease forwards;
+
+    background: rgba(255,255,255,0.04);
+
+    z-index: 2;
+
+    & .projectHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        margin-bottom: 28px;
+
+        & .projectLabel {
+            font-size: 13px;
+            font-weight: 700;
+
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            color: #666;
+        }
+
+        & .projectStatus {
+            position: relative; /* ВАЖНО */
+            
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            background: #ff453a;
+            color: white;
+
+            padding: 6px 12px 6px 26px; /* место под кружок */
+            border-radius: 30px;
+
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        /* LIVE blinking dot */
+        & .projectStatus::before {
+            content: "";
+            position: absolute;
+
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+            background: #fff;
+
+            animation: livePulse 1.4s infinite ease-in-out;
+        }
+    }
+
+    & .projectContent {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+    }
+
+    & .projectInfo {
+        flex: 1;
+    }
+
+    & .projectTitle {
+        font-size: 38px;
+        margin: 0 0 16px;
+
+        color: #111;
+        font-weight: 800;
+    }
+
+    & .projectDesc {
+        font-size: 16px;
+        line-height: 1.8;
+
+        color: #555;
+
+        margin-bottom: 24px;
+        max-width: 500px;
+    }
+
+    & .projectTags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        margin-bottom: 28px;
+
+        & span {
+            background: rgba(0,0,0,0.08);
+
+            padding: 8px 14px;
+            border-radius: 14px;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+    }
+
+    & .projectButtons {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+
+        & button {
+            border: none;
+            cursor: pointer;
+
+            transition: 0.25s ease;
+
+            padding: 12px 22px;
+            border-radius: 14px;
+
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        & .viewBtn {
+            background: #111;
+            color: white;
+
+            &:hover {
+                transform: translateY(-3px);
+                background: #333;
+            }
+        }
+
+        & .codeBtn {
+            background: transparent;
+            border: 2px solid #111;
+
+            &:hover {
+                background: #111;
+                color: white;
+                transform: translateY(-3px);
+            }
+        }
+    }
+
+    & .projectPreview {
+        width: 320px;
+        flex-shrink: 0;
+    }
+
+    & .mockup {
+        background: #111;
+
+        border-radius: 20px;
+        padding: 14px;
+
+        box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+    }
+
+    & .mockupTop {
+        display: flex;
+        gap: 6px;
+
+        margin-bottom: 12px;
+
+        & span {
+            width: 10px;
+            height: 10px;
+
+            border-radius: 50%;
+            background: #555;
+        }
+    }
+
+    & .mockupScreen {
+        background: white;
+
+        border-radius: 14px;
+        padding: 16px;
+
+        min-height: 240px;
+    }
+
+    & .fakeNavbar {
+        width: 100%;
+        height: 14px;
+
+        border-radius: 10px;
+        background: #ececec;
+
+        margin-bottom: 20px;
+    }
+
+    & .fakeHero {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    & .fakeTitle {
+        width: 80%;
+        height: 22px;
+
+        border-radius: 10px;
+        background: #111;
+    }
+
+    & .fakeText {
+        width: 100%;
+        height: 12px;
+
+        border-radius: 10px;
+        background: #dcdcdc;
+    }
+
+    & .fakeTextSmall {
+        width: 70%;
+        height: 12px;
+
+        border-radius: 10px;
+        background: #dcdcdc;
+    }
+
+    & .fakeButtons {
+        display: flex;
+        gap: 10px;
+
+        margin-top: 10px;
+
+        & div {
+            width: 90px;
+            height: 34px;
+
+            border-radius: 12px;
+            background: #111;
+        }
+    }
+}
+
+/* =========================================
+   PROJECT HEADER BUTTON
+========================================= */
+
+.projectHeaderRight {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.projectGoBtn {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+    border: none;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    background: #111;
+    color: #fff;
+
+    transition: all 0.25s ease;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.projectGoBtn:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: #333;
+}
+
+.projectGoBtn:active {
+    transform: scale(0.95);
+}
+
+/* =========================================
+   VISUAL SIDE (REFRESHED + VIBRANT)
+========================================= */
+
+.visualSide {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 55%;
+    height: 100%;
+
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ===== BACKGROUND GLOW ORBS ===== */
+
+.visualSide::before,
+.visualSide::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+    animation: floatGlow 8s ease-in-out infinite;
+}
+
+.visualSide::before {
+    width: 300px;
+    height: 300px;
+    background: #ff7a00;
+    top: 20%;
+    right: 10%;
+}
+
+.visualSide::after {
+    width: 250px;
+    height: 250px;
+    background: #00d4ff;
+    bottom: 10%;
+    right: 25%;
+    animation-delay: 2s;
+}
+
+/* ===== BIG BACK TEXT ===== */
+
+.bigText {
+    position: absolute;
+
+    font-size: 140px;
+    font-weight: 900;
+    letter-spacing: 10px;
+
+    color: rgba(255, 122, 0, 0.5);
+
+    top: 40%;
+    right: 5%;
+
+    transform: rotate(-10deg);
+
+    user-select: none;
+
+    animation: slowFloat 10s ease-in-out infinite;
+}
+
+/* ===== FLOATING TAGS ===== */
+
+.floatTag {
+    position: absolute;
+
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    padding: 10px 14px;
+    border-radius: 999px;
+
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+    animation: floatTag 6s ease-in-out infinite;
+}
+
+/* individual colors */
+.tag1 {
+    top: 18%;
+    right: 20%;
+
+    color: #ff7a00;
+    background: rgba(255, 122, 0, 0.12);
+}
+
+.tag2 {
+    top: 52%;
+    right: 8%;
+
+    color: #00d4ff;
+    background: rgba(0, 212, 255, 0.12);
+
+    animation-delay: 1.5s;
+}
+
+.tag3 {
+    top: 75%;
+    right: 25%;
+
+    color: #b56bff;
+    background: rgba(181, 107, 255, 0.12);
+
+    animation-delay: 3s;
+}
+
+/* =========================
+ANIMATIONS
+========================= */
+
+@keyframes floatTag {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-18px);
+    }
+}
+
+@keyframes slowFloat {
+    0%, 100% {
+        transform: translateY(0px) rotate(-10deg);
+    }
+    50% {
+        transform: translateY(-25px) rotate(-8deg);
+    }
+}
+
+@keyframes floatGlow {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(-30px) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes orbitRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes orbitRotateReverse {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes beamMove {
+    0%,100% {
+        transform: rotate(-35deg) translateX(0);
+    }
+
+    50% {
+        transform: rotate(-35deg) translateX(-80px);
+    }
+}
+
+@keyframes blurCardFloat {
+    0%,100% {
+        transform: rotate(18deg) translateY(0px);
+    }
+
+    50% {
+        transform: rotate(22deg) translateY(-20px);
+    }
+}
+
+@keyframes waveRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes floatGlow {
+    0%,100% {
+        transform: translateY(0px) scale(1);
+    }
+
+    50% {
+        transform: translateY(-25px) scale(1.08);
+    }
+}
+
+@keyframes floatGlowTwo {
+    0%,100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(20px);
+    }
+}
+
+@keyframes floatCard {
+    0%,100% {
+        transform: translateY(0px) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(2deg);
+    }
+}
+
+@keyframes floatCardReverse {
+    0%,100% {
+        transform: translateY(0px) rotate(2deg);
+    }
+
+    50% {
+        transform: translateY(15px) rotate(-2deg);
+    }
+}
+
+@keyframes rotateCircle {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulseCircle {
+    0%,100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUpFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%,100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(0.8);
+    }
+}
+
+@keyframes livePulse {
+    0% {
+        transform: translateY(-50%) scale(1);
+        opacity: 1;
+        box-shadow: 0 0 0 0 rgba(255,255,255,0.6);
+    }
+
+    50% {
+        transform: translateY(-50%) scale(1.3);
+        opacity: 0.7;
+        box-shadow: 0 0 0 8px rgba(255,255,255,0);
+    }
+
+    100% {
+        transform: translateY(-50%) scale(1);
+        opacity: 1;
+        box-shadow: 0 0 0 0 rgba(255,255,255,0);
+    }
+}
+
+/* =========================================
+   2K / 4K / ULTRAWIDE
+========================================= */
+
+/* =========================================
+   WIDE / 2K / ULTRAWIDE
+========================================= */
+
+@media (min-width: 1700px) {
+
+    .welcome {
+        width: 1600px;
+        margin: 0 auto;
+        padding: 0 40px;
+
+        min-height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 32px;
+    }
+
+    .introBlock {
+        max-width: 560px;
+    }
+
+    .project {
+        max-width: 760px;
+    }
+
+    .visualSide {
+        width: 50%;
+        opacity: 0.9;
+    }
+
+    .floatingCard {
+        right: 22%;
+    }
+
+    .floatingCardTwo {
+        right: 38%;
+    }
+
+    .orbit {
+        right: -100px;
+    }
+
+    .glowOne {
+        right: -40px;
+    }
+}
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (max-width: 1400px) {
+
+    .welcome {
+        gap: 30px;
+    }
+
+    .projectContent {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .projectPreview {
+        width: 100%;
+        max-width: 420px;
+    }
+
+    .visualSide {
+        width: 50%;
+    }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 992px) {
+
+    .container {
+        top: auto;
+        bottom: 20px;
+        left: 50%;
+
+        transform: translateX(-50%);
+    }
+
+    .container .navigation {
+        padding: 10px 16px;
+    }
+
+    .container .navigation ul {
+        flex-direction: row;
+    }
+
+    .welcome {
+        margin-left: 0;
+
+        width: 100%;
+
+        padding: 110px 30px 120px;
+    }
+
+    .introBlock {
+        max-width: 100%;
+    }
+
+    .project {
+        max-width: 100%;
+    }
+
+    .projectContent {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .projectPreview {
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .visualSide {
+        opacity: 0.35;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .welcome {
+        padding: 90px 16px 120px;
+        gap: 24px;
+    }
+
+    .introBlock,
+    .project {
+        padding: 22px;
+        border-radius: 20px;
+    }
+
+    .introTitle {
+        font-size: 38px !important;
+    }
+
+    .introDesc {
+        font-size: 15px !important;
+    }
+
+    .projectTitle {
+        font-size: 28px !important;
+    }
+
+    .projectDesc {
+        font-size: 14px !important;
+    }
+
+    .introActions,
+    .projectButtons {
+        flex-direction: column;
+    }
+
+    .introActions .btn,
+    .projectButtons button {
+        width: 100%;
+    }
+
+    .projectPreview {
+        width: 100%;
+    }
+
+    .mockupScreen {
+        min-height: 180px;
+    }
+
+    .projectHeader {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 16px;
+    }
+
+    .projectHeaderRight {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .visualSide {
+        display: none;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    .welcome {
+        padding: 80px 12px 110px;
+    }
+
+    .introBlock,
+    .project {
+        padding: 18px;
+    }
+
+    .introTitle {
+        font-size: 30px !important;
+    }
+
+    .projectTitle {
+        font-size: 24px !important;
+    }
+
+    .container .navigation ul li {
+        padding: 10px;
+    }
+
+    .container .navigation ul li img {
+        width: 20px;
+        height: 20px;
     }
 }
