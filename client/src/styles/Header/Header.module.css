@@ -1,176 +1,199 @@
-header {
+.header {
     position: fixed;
     top: 20px;
     left: 0;
     right: 0;
     z-index: 1000;
-    
-    & .container {
-        height: 60px;
-        margin: 0 auto;
-        padding: 0 20px;
-        border-radius: 80px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        
-        & .left {
-            width: 120px;
-            border-radius: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            
-            & h1 {
-                margin: 0;
-                font-size: 45px;
-                font-weight: 900;
-            }
-        }
+}
 
-        & .right {
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 15px;
-            
-            /* push (иконка уведомлений) */
-            & .push {
-                background-color: #e1e0da;
-                height: 60px;
-                width: 60px;
-                border-radius: 60px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                transition: background-color 0.2s ease;
-                            
-                & img {
-                    width: 60px;
-                    height: 60px;
-                    display: block;
-                    object-fit: contain;
-                }
-            }
+.container {
+    height: 60px;
+    margin: 0 auto;
+    padding: 0 20px;
 
-            /* Кнопка "Войти" */
-            & .loginButton {
-                background-color: #e1e0da;
-                border: none;
-                border-radius: 60px;
-                height: 60px;
-                padding: 0 25px;
-                font-size: 16px;
-                font-weight: 700;
-                color: #333;
-                cursor: pointer;
-                transition: background-color 0.2s ease;
-                white-space: nowrap;
+    border-radius: 80px;
 
-                &:hover {
-                    background-color: #d0cfc9;
-                }
-            }
-            
-            /* profile (приветствие + аватар) */
-            & .profile {
-                background-color: #e1e0da;
-                border-radius: 60px;
-                display: flex;
-                align-items: center;
-                height: 60px;
-                padding-right: 8px;
-                
-                & .left {
-                    width: auto;
-                    background-color: transparent;
-                    border-radius: 0;
-                    height: auto;
-                    
-                    & p {
-                        margin: 0;
-                        font-size: 18px;
-                        padding: 0 15px;
-                        color: #333;
-                        font-weight: 700;
-                        white-space: nowrap;
-                    }
-                }
-                
-                & .right {
-                    width: 44px;
-                    height: 44px;
-                    background-color: transparent;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    
-                    & img {
-                        width: 44px;
-                        height: 44px;
-                        object-fit: cover;
-                        border-radius: 50%;
-                        display: block;
-                    }
-                }
-            }
-        }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    backdrop-filter: blur(10px);
+}
+
+/* LEFT */
+.left {
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left h1 {
+    margin: 0;
+    font-size: 40px;
+    font-weight: 900;
+    color: #111;
+}
+
+/* RIGHT */
+.right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* NOTIFICATIONS */
+.push {
+    background-color: #e1e0da;
+
+    height: 50px;
+    width: 50px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.push img {
+    width: 26px;
+    height: 26px;
+}
+
+/* LOGIN BUTTON */
+.loginButton {
+    background-color: #e1e0da;
+    color: #111;
+
+    border: none;
+    border-radius: 50px;
+
+    height: 50px;
+    padding: 0 20px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+/* PROFILE */
+.profile {
+    background-color: #e1e0da;
+    color: white;
+
+    border-radius: 50px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 5px 10px;
+}
+
+.profile p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    color: #111;
+}
+
+.profile img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+}
+
+/* LOGOUT */
+.logoutBtn {
+    background: transparent;
+    border: 1px solid #111;
+
+    color: #111;
+
+    border-radius: 20px;
+
+    padding: 4px 10px;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+/* MODAL */
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,0.6);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    width: 340px;
+
+    background: #e1e0da;
+    color: white;
+
+    padding: 20px;
+
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    & h2 {
+        color: #111;
+    }
+
+    & p {
+        color: #111;
     }
 }
 
-/* Адаптивность для мобильных устройств */
-@media (max-width: 768px) {
-    header {
-        top: 10px;
-        
-        & .container {
-            padding: 0 15px;
-            
-            & .left h1 {
-                font-size: 24px;
-            }
-            
-            & .right {
-                gap: 10px;
-                
-                & .push {
-                    height: 50px;
-                    width: 50px;
-                    
-                    & img {
-                        width: 50px;
-                        height: 50px;
-                    }
-                }
+.modal input {
+    padding: 10px;
+    border-radius: 10px;
 
-                & .loginButton {
-                    height: 50px;
-                    padding: 0 20px;
-                    font-size: 14px;
-                }
-                
-                & .profile {
-                    height: 50px;
-                    
-                    & .left p {
-                        font-size: 14px;
-                        padding: 0 12px;
-                    }
-                    
-                    & .right {
-                        width: 38px;
-                        height: 38px;
-                        
-                        & img {
-                            width: 38px;
-                            height: 38px;
-                        }
-                    }
-                }
-            }
-        }
+    border: none;
+    outline: none;
+}
+
+.modal button {
+    padding: 10px;
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.modal p {
+    text-align: center;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .left h1 {
+        font-size: 28px;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+
+    .profile p {
+        display: none;
     }
 }
