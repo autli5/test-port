@@ -5,6 +5,8 @@ import Header from '../widgets/Header/Header'
 
 import { HomePage } from '../pages/HomePage/HomePage'
 import { ProjectPage } from '../pages/ProjectPage/ProjectPage'
+import ProfilePage from '../pages/ProfilePage/ProfilePage'
+import SettingsPage from '../pages/SettingsPage/SettingsPage'
 function App() {
 
   return (
@@ -14,6 +16,8 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />}/>
           <Route path='/projects' element={<ProjectPage />}/>
+          <Route path='/profile' element={<ProfilePage />}/>
+          <Route path='/settings' element={<SettingsPage />}/>
         </Routes>
       </BrowserRouter>
     </div>

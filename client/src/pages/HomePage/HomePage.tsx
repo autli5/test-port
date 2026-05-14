@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
+
+import SplitText from "../../components/SplitText/SplitText";
+
 import styles from "../../styles/HomePage/HomePage.module.css";
+
 import house from "../../assets/house.svg";
 import about from "../../assets/about.svg";
 import projects from "../../assets/projects.svg";
 
 export const HomePage = () => {
+
     const [activeIndex, setActiveIndex] = useState(0);
 
     const navItems = [
@@ -37,13 +42,38 @@ export const HomePage = () => {
             </div>
 
             <div className={styles.welcome}>
+
+                {/* HERO */}
                 <div className={styles.introBlock}>
-                    <span className={styles.statusBadge}>Доступен для проектов</span>
-                    <h1 className={styles.introTitle}>Web Developer</h1>
-                    <p className={styles.introDesc}>
-                        Создаю современные, быстрые и адаптивные веб-решения.
-                        Превращаю идеи в интерактивный цифровой продукт с вниманием к деталям и UX.
-                    </p>
+
+                    <span className={styles.statusBadge}>
+                        Доступен для проектов
+                    </span>
+
+                    {/* 🔥 SPLIT TITLE */}
+                    <SplitText
+                        text="Web Developer"
+                        className={styles.introTitle}
+                        splitType="chars"
+                        delay={50}
+                        duration={1.2}
+                        ease="power3.out"
+                        from={{ opacity: 0, y: 40 }}
+                        to={{ opacity: 1, y: 0 }}
+                        textAlign="left"
+                    />
+
+                    {/* 🔥 SPLIT DESCRIPTION */}
+                    <SplitText
+                        text="Создаю современные, быстрые и адаптивные веб-решения. Превращаю идеи в интерактивный цифровой продукт с вниманием к деталям и UX."
+                        className={styles.introDesc}
+                        splitType="words"
+                        delay={20}
+                        duration={0.8}
+                        ease="power2.out"
+                        from={{ opacity: 0, y: 10 }}
+                        to={{ opacity: 1, y: 0 }}
+                    />
 
                     <div className={styles.introActions}>
                         <Link
@@ -60,21 +90,25 @@ export const HomePage = () => {
                             Связаться
                         </Link>
                     </div>
+
                 </div>
 
                 {/* PROJECT BLOCK */}
                 <div className={styles.project}>
 
                     <div className={styles.projectHeader}>
-                        <span className={styles.projectLabel}>Последний проект</span>
+                        <span className={styles.projectLabel}>
+                            Последний проект
+                        </span>
 
                         <div className={styles.projectHeaderRight}>
-                            <span className={styles.projectStatus}>LIVE</span>
+                            <span className={styles.projectStatus}>
+                                LIVE
+                            </span>
 
                             <button
                                 className={styles.projectGoBtn}
                                 onClick={goToProjects}
-                                aria-label="Перейти ко всем проектам"
                             >
                                 →
                             </button>
@@ -83,11 +117,21 @@ export const HomePage = () => {
 
                     <div className={styles.projectContent}>
                         <div className={styles.projectInfo}>
-                            <h2 className={styles.projectTitle}>Portfolio Website</h2>
+
+                            <SplitText
+                                text="Portfolio Website"
+                                className={styles.projectTitle}
+                                splitType="chars"
+                                delay={40}
+                                duration={1}
+                                ease="power3.out"
+                                from={{ opacity: 0, y: 30 }}
+                                to={{ opacity: 1, y: 0 }}
+                                textAlign="left"
+                            />
 
                             <p className={styles.projectDesc}>
-                                Современное портфолио для web developer с минималистичным
-                                интерфейсом, анимациями и адаптивным дизайном.
+                                Современное портфолио для web developer с минималистичным интерфейсом, анимациями и адаптивным дизайном.
                             </p>
 
                             <div className={styles.projectTags}>
@@ -97,20 +141,15 @@ export const HomePage = () => {
                             </div>
 
                             <div className={styles.projectButtons}>
-                                <Link
-                                    to="/projects"
-                                    className={styles.viewBtn}
-                                >
+                                <Link to="/projects" className={styles.viewBtn}>
                                     Смотреть
                                 </Link>
 
-                                <Link
-                                    to="/projects"
-                                    className={styles.codeBtn}
-                                >
+                                <Link to="/projects" className={styles.codeBtn}>
                                     GitHub
                                 </Link>
                             </div>
+
                         </div>
 
                         <div className={styles.projectPreview}>
@@ -141,7 +180,8 @@ export const HomePage = () => {
                     </div>
                 </div>
             </div>
-            
+
+            {/* SIDE VISUAL */}
             <div className={styles.visualSide}>
                 <span className={styles.bigText}>DEVELOPER</span>
 
