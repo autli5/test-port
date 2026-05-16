@@ -604,6 +604,320 @@
     animation-delay: 3s;
 }
 
+
+/* =========================================
+   ABOUT PREMIUM SECTION
+========================================= */
+
+.aboutHero {
+
+    position: relative;
+
+    width: 100%;
+    max-width: 1200px;
+
+    min-height: 700px;
+
+    border-radius: 40px;
+
+    padding: 60px;
+
+    backdrop-filter: blur(20px);
+
+    animation: slideUpFade 0.8s ease forwards;
+}
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.aboutMain {
+
+    position: relative;
+    z-index: 5;
+
+    max-width: 700px;
+}
+
+.aboutMini {
+
+    display: inline-flex;
+
+    padding: 10px 18px;
+
+    border-radius: 999px;
+
+    background: rgba(255,122,0,0.12);
+
+    color: #ff7a00;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 24px;
+
+    backdrop-filter: blur(10px);
+}
+
+.aboutBigTitle {
+
+    font-size: 82px;
+    line-height: 0.95;
+
+    font-weight: 900;
+
+    color: #111;
+
+    margin: 0 0 30px;
+
+    max-width: 850px;
+}
+
+.aboutDescription {
+
+    font-size: 20px;
+    line-height: 1.9;
+
+    color: #444;
+
+    max-width: 650px;
+
+    margin-bottom: 50px;
+}
+
+/* =========================================
+   STATS
+========================================= */
+
+.aboutStats {
+
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.aboutStatCard {
+
+    min-width: 180px;
+
+    padding: 28px;
+
+    border-radius: 28px;
+
+
+    transition: 0.3s ease;
+}
+
+.aboutStatCard h2 {
+
+    font-size: 48px;
+    margin: 0 0 10px;
+
+    color: #111;
+}
+
+.aboutStatCard span {
+
+    color: #555;
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* =========================================
+   FLOATING TAGS
+========================================= */
+
+.aboutFloating {
+
+    position: absolute;
+
+    padding: 14px 22px;
+
+    border-radius: 999px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+
+    z-index: 4;
+}
+
+.aboutFloat1 {
+
+    top: 100px;
+    right: 140px;
+
+    background: rgba(97,218,251,0.12);
+
+    color: #00bcd4;
+}
+
+.aboutFloat2 {
+
+    top: 260px;
+    right: 60px;
+
+    background: rgba(49,120,198,0.12);
+
+    color: #3178c6;
+}
+
+.aboutFloat3 {
+
+    bottom: 120px;
+    right: 180px;
+
+    background: rgba(255,145,0,0.12);
+
+    color: #ff9100;
+}
+
+/* =========================================
+   GLOWS
+========================================= */
+
+.aboutGlowOne,
+.aboutGlowTwo {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: 0.7;
+}
+
+.aboutGlowOne {
+
+    width: 320px;
+    height: 320px;
+
+    background: #ff7a00;
+
+    top: -80px;
+    right: -50px;
+
+    animation: floatGlow 7s ease infinite;
+}
+
+.aboutGlowTwo {
+
+    width: 260px;
+    height: 260px;
+
+    background: #00d4ff;
+
+    bottom: -60px;
+    left: 20%;
+
+    animation: floatGlowTwo 8s ease infinite;
+}
+
+/* =========================================
+   ORBIT
+========================================= */
+
+.aboutOrbit {
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    top: 50%;
+    right: -120px;
+
+    transform: translateY(-50%);
+
+    animation: rotateCircle 20s linear infinite;
+}
+
+/* =========================================
+   BACK TEXT
+========================================= */
+
+.aboutBackText {
+
+    position: absolute;
+
+    right: -30px;
+    bottom: 30px;
+
+    font-size: 180px;
+    font-weight: 900;
+
+    letter-spacing: 8px;
+
+    color: rgba(255,122,0,0.08);
+
+    user-select: none;
+
+    z-index: 1;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 992px) {
+
+    .aboutHero {
+        padding: 32px;
+        min-height: auto;
+    }
+
+    .aboutBigTitle {
+        font-size: 54px;
+    }
+
+    .aboutDescription {
+        font-size: 17px;
+    }
+
+    .aboutOrbit,
+    .aboutBackText {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .aboutBigTitle {
+        font-size: 38px;
+    }
+
+    .aboutDescription {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .aboutStats {
+        flex-direction: column;
+    }
+
+    .aboutStatCard {
+        width: 100%;
+    }
+
+    .aboutFloating {
+        display: none;
+    }
+}
+
+
 /* =========================
 ANIMATIONS
 ========================= */
