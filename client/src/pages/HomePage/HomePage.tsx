@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import { motion } from "framer-motion";
 
+import { projects } from "../../entities/project/project.data";
+
 import SplitText from "../../components/SplitText/SplitText";
 
 import styles from "../../styles/HomePage/HomePage.module.css";
@@ -13,6 +15,8 @@ import about from "../../assets/about.svg";
 export const HomePage = () => {
 
     const [activeIndex, setActiveIndex] = useState(0);
+    
+    const latestProject = projects[projects.length - 1];
 
     const navItems = [
         { icon: house, label: 'Home' },
@@ -20,8 +24,9 @@ export const HomePage = () => {
     ];
 
     const goToProjects = () => {
-        window.location.href = "/projects";
+        window.location.href = `${latestProject.link}`;
     };
+
 
     return (
         <>
@@ -128,7 +133,7 @@ export const HomePage = () => {
                                 <div className={styles.projectHeaderRight}>
 
                                     <span className={styles.projectStatus}>
-                                        LIVE
+                                        {latestProject.status}
                                     </span>
 
                                     <button
@@ -147,7 +152,7 @@ export const HomePage = () => {
                                 <div className={styles.projectInfo}>
 
                                     <SplitText
-                                        text="Portfolio Website"
+                                        text={latestProject.title}
                                         className={styles.projectTitle}
                                         splitType="chars"
                                         delay={40}
@@ -159,31 +164,28 @@ export const HomePage = () => {
                                     />
 
                                     <p className={styles.projectDesc}>
-                                        Современное портфолио для web developer
-                                        с минималистичным интерфейсом,
-                                        анимациями и адаптивным дизайном.
+                                        {latestProject.desc}
                                     </p>
 
                                     <div className={styles.projectTags}>
-
-                                        <span>React</span>
-                                        <span>CSS Modules</span>
-                                        <span>Responsive</span>
-
+                                        {latestProject.tech.map((t, i) => (
+                                            <span key={i}>{t}</span>
+                                        ))}
                                     </div>
 
                                     <div className={styles.projectButtons}>
 
                                         <Link
-                                            to="/projects"
+                                            to={latestProject.link}
                                             className={styles.viewBtn}
                                         >
                                             Смотреть
                                         </Link>
 
                                         <Link
-                                            to="/projects"
+                                            to={latestProject.code}
                                             className={styles.codeBtn}
+                                            target='_blank'
                                         >
                                             GitHub
                                         </Link>
@@ -339,7 +341,7 @@ export const HomePage = () => {
                                     duration: 0.8
                                 }}
                             >
-                                Я frontend разрабьотчик,
+                                Я frontend разработчик,
                                 создающий современные интерфейсы,
                                 премиум UX и быстрые веб-приложения
                                 с акцентом на motion дизайн,

@@ -1,41 +1,57 @@
 import styles from "../../styles/ProjectPage/ProjectPage.module.css";
 import { Link } from "react-router-dom";
 
+import { projects } from "../../entities/project/project.data";
+
 export const ProjectPage = () => {
-    const projects = [
-        {
-            title: "Portfolio Website",
-            desc: "Modern developer portfolio with animations and responsive layout.",
-            tech: ["React", "CSS Modules", "Responsive"],
-            status: "Live",
-            link: "/projects/portfolio",
-            code: "https://github.com/autli5/portfolio",
-        },
-    ];
 
     return (
         <div className={styles.page}>
+
             {/* GRID */}
             <div className={styles.grid}>
-                {projects.map((project, index) => (
-                    <div key={index} className={styles.card}>
-                        
+
+                {projects.map((project) => (
+
+                    <div
+                        key={project.id}
+                        className={styles.card}
+                    >
+
                         <div className={styles.cardHeader}>
-                            <span className={styles.status}>{project.status}</span>
+
+                            <span className={styles.status}>
+                                {project.status}
+                            </span>
+
                         </div>
 
-                        <h2 className={styles.cardTitle}>{project.title}</h2>
+                        <h2 className={styles.cardTitle}>
+                            {project.title}
+                        </h2>
 
-                        <p className={styles.cardDesc}>{project.desc}</p>
+                        <p className={styles.cardDesc}>
+                            {project.desc}
+                        </p>
 
                         <div className={styles.tech}>
+
                             {project.tech.map((t, i) => (
-                                <span key={i}>{t}</span>
+
+                                <span key={i}>
+                                    {t}
+                                </span>
+
                             ))}
+
                         </div>
 
                         <div className={styles.actions}>
-                            <Link to={project.link} className={styles.viewBtn}>
+
+                            <Link
+                                to={project.link}
+                                className={styles.viewBtn}
+                            >
                                 Подробнее
                             </Link>
 
@@ -47,11 +63,15 @@ export const ProjectPage = () => {
                             >
                                 GitHub
                             </a>
+
                         </div>
 
                     </div>
+
                 ))}
+
             </div>
+
         </div>
     );
 };
