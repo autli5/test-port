@@ -130,7 +130,7 @@ const Header = () => {
                 {/* LEFT */}
                 <div className={styles.left}>
                     <Link to="/">
-                        <h1>Autli</h1>
+                        <h1>Аутли</h1>
                     </Link>
                 </div>
 
@@ -163,7 +163,7 @@ const Header = () => {
                             >
 
                                 <p>
-                                    Hey, {displayName}
+                                    Привет, {displayName}
                                 </p>
 
                                 <img
@@ -200,7 +200,7 @@ const Header = () => {
                                     onClick={handleLogout}
                                     className={styles.logoutDropdown}
                                 >
-                                    Logout
+                                    Выйти
                                 </button>
 
                             </div>

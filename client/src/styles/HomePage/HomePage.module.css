@@ -801,8 +801,6 @@
     width: 320px;
     height: 320px;
 
-    background: #ff7a00;
-
     top: -80px;
     right: -50px;
 
@@ -813,8 +811,6 @@
 
     width: 260px;
     height: 260px;
-
-    background: #00d4ff;
 
     bottom: -60px;
     left: 20%;
@@ -1120,9 +1116,7 @@ ANIMATIONS
         width: 1600px;
         margin: 0 auto;
         padding: 0 40px;
-
-        min-height: 100vh;
-
+        padding-top: 45px;
         display: flex;
         flex-direction: column;
         justify-content: center;

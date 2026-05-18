@@ -74,7 +74,7 @@ export const HomePage = () => {
                             </span>
 
                             <SplitText
-                                text="Web Developer"
+                                text="Веб разработчик"
                                 className={styles.introTitle}
                                 splitType="chars"
                                 delay={50}
@@ -310,11 +310,11 @@ export const HomePage = () => {
                         >
 
                             <span className={styles.aboutMini}>
-                                ABOUT ME
+                                ОБО МНЕ
                             </span>
 
                             <SplitText
-                                text="Creating modern web experiences."
+                                text="Создаю современные веб-интерфейсы."
                                 className={styles.aboutBigTitle}
                                 splitType="words"
                                 delay={35}
@@ -339,10 +339,10 @@ export const HomePage = () => {
                                     duration: 0.8
                                 }}
                             >
-                                Я frontend developer,
+                                Я frontend разрабьотчик,
                                 создающий современные интерфейсы,
-                                premium UX и быстрые web-приложения
-                                с акцентом на motion design,
+                                премиум UX и быстрые веб-приложения
+                                с акцентом на motion дизайн,
                                 performance и user experience.
                             </motion.p>
 
@@ -357,10 +357,10 @@ export const HomePage = () => {
                                     }}
                                 >
 
-                                    <h2>3+</h2>
+                                    <h2>10+</h2>
 
                                     <span>
-                                        Года опыта
+                                        Лет опыта
                                     </span>
 
                                 </motion.div>
@@ -381,21 +381,6 @@ export const HomePage = () => {
 
                                 </motion.div>
 
-                                <motion.div
-                                    className={styles.aboutStatCard}
-                                    whileHover={{
-                                        y: -8,
-                                        scale: 1.03
-                                    }}
-                                >
-
-                                    <h2>100%</h2>
-
-                                    <span>
-                                        Responsive
-                                    </span>
-
-                                </motion.div>
 
                             </div>
 
@@ -406,7 +391,7 @@ export const HomePage = () => {
 
                         {/* BACK TEXT */}
                         <span className={styles.aboutBackText}>
-                            CREATIVE
+                            КРЕАТИВ
                         </span>
 
                     </div>
@@ -418,7 +403,7 @@ export const HomePage = () => {
             <div className={styles.visualSide}>
 
                 <span className={styles.bigText}>
-                    DEVELOPER
+                    РАЗРАБ
                 </span>
 
                 <span className={`${styles.floatTag} ${styles.tag1}`}>
@@ -426,11 +411,11 @@ export const HomePage = () => {
                 </span>
 
                 <span className={`${styles.floatTag} ${styles.tag2}`}>
-                    WEB
+                    ВЕБ
                 </span>
 
                 <span className={`${styles.floatTag} ${styles.tag3}`}>
-                    PORTFOLIO
+                    ПОРТФОЛИО
                 </span>
 
             </div>
