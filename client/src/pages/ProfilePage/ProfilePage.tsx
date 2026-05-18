@@ -75,6 +75,16 @@ const ProfilePage = () => {
 
     };
 
+    const handleKeyDown = (
+        e: React.KeyboardEvent<HTMLInputElement>
+    ) => {
+
+        if (e.key === "Enter") {
+            handleSave();
+        }
+
+    };
+
     return (
         <div className={styles.page}>
 
@@ -103,6 +113,7 @@ const ProfilePage = () => {
                             type="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
+                            onKeyDown={handleKeyDown}
                         />
                     </div>
 
@@ -113,6 +124,7 @@ const ProfilePage = () => {
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                            onKeyDown={handleKeyDown}
                         />
                     </div>
 
@@ -124,6 +136,7 @@ const ProfilePage = () => {
                             placeholder="••••••••"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            onKeyDown={handleKeyDown}
                         />
                     </div>
 
